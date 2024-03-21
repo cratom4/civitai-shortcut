@@ -269,7 +269,9 @@ def download_file(url, file_name):
         else:
             downloaded_size = 0
             headers = {}
-
+            
+        headers["Authorization"] = f"Bearer {setting.civitai_api_key}"        
+        
         # Split filename from included path
         tokens = re.split(re.escape('\\'), file_name)
         file_name_display = tokens[-1]
